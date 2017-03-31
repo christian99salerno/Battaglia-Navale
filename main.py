@@ -5,8 +5,8 @@ screen=curses.initscr()
 
 curses.curs_set(0)
 
-scacchiera1=ScacchieraNC(screen, 5, 5)
-scacchiera1.posizione_nave((6,11))
+scacchiera1=ScacchieraNC(screen, 4, 4, 5, 5)
+scacchiera1.posizione_nave((2,2))
 
 #scacchiera2=ScacchieraNC(screen, 5, 5)
 
@@ -14,7 +14,7 @@ scacchiera1.posizione_nave((6,11))
 #scacchiera4=ScacchieraNC(screen, 5, 5)
 
 #Giocatore1
-scacchiera1.stampa(5, 10)
+scacchiera1.stampa()
 scacchiera1.stampa_navi()
 #scacchiera2.stampa(5, 40)
 
