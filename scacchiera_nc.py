@@ -30,4 +30,3 @@ class ScacchieraNC(Scacchiera):
         for posizione in self.posizioni: 
             self.screen.addstr((self.rig+2)+4*(posizione[0]-1),(self.col+2)+4*(posizione[1]-1),"x")
         
-
