@@ -1,4 +1,5 @@
 from scacchiera_navi import *
+from scacchiera_colpi import *
 import curses
 
 class ScacchieraNC(ScacchieraNavi):
@@ -29,6 +30,5 @@ class ScacchieraNC(ScacchieraNavi):
     def stampa_navi(self):
         for posizione in self.posizioni:
             self.screen.addstr((self.rig+2)+4*(posizione[0]-1),(self.col+2)+4*(posizione[1]-1),"x")
-
 
         
