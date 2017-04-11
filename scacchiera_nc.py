@@ -1,9 +1,9 @@
-from scacchiera import *
+from scacchiera_navi import *
 import curses
 
-class ScacchieraNC(Scacchiera):
+class ScacchieraNC(ScacchieraNavi):
     def __init__(self, screen, r, c, rig, col):
-        Scacchiera.__init__(self, r, c)
+        ScacchieraNavi.__init__(self, r, c)
         self.screen = screen
         self.rig=rig
         self.col=col
@@ -27,6 +27,8 @@ class ScacchieraNC(Scacchiera):
             self.screen.addstr(self.rig-1, self.col+2+4*(colonne-1), str(colonne))
         
     def stampa_navi(self):
-        for posizione in self.posizioni: 
+        for posizione in self.posizioni:
             self.screen.addstr((self.rig+2)+4*(posizione[0]-1),(self.col+2)+4*(posizione[1]-1),"x")
+
+
         

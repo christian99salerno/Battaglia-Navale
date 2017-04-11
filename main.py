@@ -6,8 +6,11 @@ screen=curses.initscr()
 curses.curs_set(0)
 
 scacchiera1=ScacchieraNC(screen, 5, 5, 5, 5)
-scacchiera1.posizione_nave((6,6))
-scacchiera1.posizione_nave((2,1))
+scacchiera1.posizione_nave((4,4), 2, 'h')
+scacchiera1.posizione_nave((1,1), 2, 'v')
+scacchiera1.posizione_nave((1,1), 2, 'h')
+scacchiera1.posizione_nave((4,2), 2, 'h')
+
 
 #scacchiera2=ScacchieraNC(screen, 5, 5)
 
