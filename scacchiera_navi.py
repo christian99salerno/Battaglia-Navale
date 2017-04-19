@@ -58,3 +58,13 @@ class ScacchieraNavi(ScacchieraGenerale):
                 self.pos_nn_accet.append((posizione[0]-2,posizione[1]-1))
                 self.pos_nn_accet.append((posizione[0]-2,posizione[1]))
                 self.pos_nn_accet.append((posizione[0]-2,posizione[1]+1))
+
+
+
+
+if __name__=='__main__':
+    s = ScacchieraNavi(5, 5)
+    print s
+    print type(s)
+    print type(s) is ScacchieraNavi
+    print isinstance(s, ScacchieraNavi)

@@ -1,34 +1,36 @@
+import curses
 from scacchiera_navi import *
 from scacchiera_colpi import *
-import curses
 
-class ScacchieraNC(ScacchieraNavi):
-    def __init__(self, screen, r, c, rig, col):
-        ScacchieraNavi.__init__(self, r, c)
-        self.screen = screen
-        self.rig=rig
-        self.col=col
+def StampaScacchiera(scacchiera, screen, pos_rig, pos_col):
+    for i in range(0,scacchiera.r*4+1,4):
+	screen.addstr(pos_rig+i,pos_col,"-"*(scacchiera.c*4))
+        
+    for i in range(0,scacchiera.c*4+1,4):
+        for j in range(0,scacchiera.r*4+1,1):
+            screen.addstr(pos_rig+j,pos_col+i,"|")
 
-    def stampa(self):
-	for i in range(0,self.r*4+1,4):
-		self.screen.addstr(self.rig+i,self.col,"-"*(self.c*4))
+    for i in range(0,scacchiera.r*4+1,4):
+        for j in range(0,scacchiera.c*4+1,4):
+            screen.addstr(pos_rig+i,pos_col+j,"+")   
         
-        for i in range(0,self.c*4+1,4):
-            for j in range(0,self.r*4+1,1):
-                self.screen.addstr(self.rig+j,self.col+i,"|")   
+    for righe in range(1,scacchiera.r+1):
+        screen.addstr(pos_rig+2+4*(righe-1), pos_col-1,  str(righe))
         
-        for i in range(0,self.r*4+1,4):
-            for j in range(0,self.c*4+1,4):
-                self.screen.addstr(self.rig+i,self.col+j,"+")   
-        
-        for righe in range(1,self.r+1):
-            self.screen.addstr(self.rig+2+4*(righe-1), self.col-1,  str(righe))
-        
-        for colonne in range(1, self.c+1):
-            self.screen.addstr(self.rig-1, self.col+2+4*(colonne-1), str(colonne))
-        
-    def stampa_navi(self):
-        for posizione in self.posizioni:
-            self.screen.addstr((self.rig+2)+4*(posizione[0]-1),(self.col+2)+4*(posizione[1]-1),"x")
+    for colonne in range(1, scacchiera.c+1):
+        screen.addstr(pos_rig-1, pos_col+2+4*(colonne-1), str(colonne))
 
-        
+    if isinstance(scacchiera, ScacchieraNavi):
+        StampaNavi(scacchiera, screen, pos_rig, pos_col)
+    else:
+        StampaColpi(scacchiera, screen, pos_rig, pos_col)
+
+def StampaSimboli(scacchiera, screen, pos_rig, pos_col, simbolo):
+    for posizione in scacchiera.posizioni:
+        screen.addstr((pos_rig+2)+4*(posizione[0]-1),(pos_col+2)+4*(posizione[1]-1),simbolo)
+
+def StampaNavi(scacchiera, screen, pos_rig, pos_col):
+    StampaSimboli(scacchiera, screen, pos_rig, pos_col, 'x')
+
+def StampaColpi(scacchiera, screen, pos_rig, pos_col):
+    StampaSimboli(scacchiera, screen, pos_rig, pos_col, 'o')
