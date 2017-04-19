@@ -62,9 +62,3 @@ class ScacchieraNavi(ScacchieraGenerale):
 
 
 
-if __name__=='__main__':
-    s = ScacchieraNavi(5, 5)
-    print s
-    print type(s)
-    print type(s) is ScacchieraNavi
-    print isinstance(s, ScacchieraNavi)
