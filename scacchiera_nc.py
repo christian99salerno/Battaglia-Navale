@@ -34,3 +34,7 @@ def StampaNavi(scacchiera, screen, pos_rig, pos_col):
 
 def StampaColpi(scacchiera, screen, pos_rig, pos_col):
     StampaSimboli(scacchiera, screen, pos_rig, pos_col, 'o')
+
+def StampaColpito(scacchiera, screen, pos_rig, pos_col):
+    StampaSimboli(scacchiera, screen, pos_rig, pos_col, '#')
+    

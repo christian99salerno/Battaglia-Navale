@@ -4,6 +4,7 @@ class ScacchieraNavi(ScacchieraGenerale):
     def __init__(self,r,c):
         ScacchieraGenerale.__init__(self,r,c)
         self.pos_nn_accet=[]
+        self.navi_abbattute=[]
 
     def posizione_nave(self,posizione,grande,verso):
         if grande==1:
@@ -58,6 +59,14 @@ class ScacchieraNavi(ScacchieraGenerale):
                 self.pos_nn_accet.append((posizione[0]-2,posizione[1]-1))
                 self.pos_nn_accet.append((posizione[0]-2,posizione[1]))
                 self.pos_nn_accet.append((posizione[0]-2,posizione[1]+1))
+    
+    def BreakShip(self, colpo):
+        if colpo in self.posizioni:
+            self.navi_abbattute.append(colpo)
+        else:
+            return
+             
+
 
 
 
