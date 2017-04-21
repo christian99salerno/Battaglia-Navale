@@ -22,12 +22,16 @@ def StampaScacchiera(scacchiera, screen, pos_rig, pos_col):
 
     if isinstance(scacchiera, ScacchieraNavi):
         StampaNavi(scacchiera, screen, pos_rig, pos_col)
+        StampaColpito(scacchiera, screen, pos_rig, pos_col)
     else:
         StampaColpi(scacchiera, screen, pos_rig, pos_col)
+     
+     
 
 def StampaSimboli(scacchiera, screen, pos_rig, pos_col, simbolo):
     for posizione in scacchiera.posizioni:
         screen.addstr((pos_rig+2)+4*(posizione[0]-1),(pos_col+2)+4*(posizione[1]-1),simbolo)
+
 
 def StampaNavi(scacchiera, screen, pos_rig, pos_col):
     StampaSimboli(scacchiera, screen, pos_rig, pos_col, 'x')
@@ -36,5 +40,7 @@ def StampaColpi(scacchiera, screen, pos_rig, pos_col):
     StampaSimboli(scacchiera, screen, pos_rig, pos_col, 'o')
 
 def StampaColpito(scacchiera, screen, pos_rig, pos_col):
-    StampaSimboli(scacchiera, screen, pos_rig, pos_col, '#')
+    for posizione in scacchiera.navi_abbattute:
+        screen.addstr((pos_rig+2)+4*(posizione[0]-1),(pos_col+2)+4*(posizione[1]-1),'#')
+
     
