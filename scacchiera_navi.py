@@ -3,6 +3,7 @@ from scacchiera_generale import *
 maxnavi=7
 
 class ScacchieraNavi(ScacchieraGenerale):
+   
     def __init__(self,r,c):
         ScacchieraGenerale.__init__(self,r,c)
         self.pos_nn_accet=[]
