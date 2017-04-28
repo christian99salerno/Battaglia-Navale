@@ -1,8 +1,7 @@
 from scacchiera_generale import *
 
-maxnavi=7
-
 class ScacchieraNavi(ScacchieraGenerale):
+    maxnavi=7
    
     def __init__(self,r,c):
         ScacchieraGenerale.__init__(self,r,c)
@@ -71,12 +70,12 @@ class ScacchieraNavi(ScacchieraGenerale):
                 self.navi2max-=1
 
     def BreakShip(self, colpo):
-        if self.cbreak==maxnavi:
+        if self.cbreak==ScacchieraNavi.maxnavi or colpo[0] > self.r or colpo[1] > self.c or colpo[0] < 0 or colpo[1] < 0:
             return
         else:
             if colpo in self.posizioni:
                self.navi_abbattute.append(colpo)
-               self.cbreak=self.c+1
+               self.cbreak+=1
             else:                   
                return
              
