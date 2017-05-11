@@ -13,8 +13,6 @@ screen=curses.initscr()
 
 curses.curs_set(0)
 
-#Giocatore1
-
 screen.addstr(1,5,"Player:1")
 screen.addstr(28, 5, "Inserisci:")
 
@@ -33,6 +31,7 @@ StampaScacchiera(scacchiera2, screen, 5, 30)
 StampaScacchiera(scacchiera3, screen, 5, 140)
 StampaScacchiera(scacchiera4, screen, 5, 165)
 
+#Ciclo di posizionamento navi del Giocatore1
 while scacchiera1.navi1max>0 or scacchiera1.navi2max>0:
    
     screen.addstr(30, 5, "Navi da uno:"+str(scacchiera1.navi1max))
@@ -57,6 +56,7 @@ while scacchiera1.navi1max>0 or scacchiera1.navi2max>0:
         scacchiera1.posizione_nave((r,c), 2, verso)
     
     elif tipo_nave==0:
+        curses.endwin()
         exit(0)
 
     StampaScacchiera(scacchiera1, screen, 5, 5)
@@ -67,6 +67,7 @@ while scacchiera1.navi1max>0 or scacchiera1.navi2max>0:
 
 screen.addstr(29, 140, "\n\n\n\n\n\n\n\n\n\n")
 
+#Ciclo di posizionamento navi del Giocatore2
 while scacchiera4.navi1max>0 or scacchiera4.navi2max>0:
     
     screen.addstr(30, 140, "Navi da uno:"+str(scacchiera4.navi1max))
@@ -91,6 +92,7 @@ while scacchiera4.navi1max>0 or scacchiera4.navi2max>0:
         scacchiera4.posizione_nave((r,c), 2, verso)
         
     elif tipo_nave==0:
+        curses.endwin()
         exit(0)
 
     StampaScacchiera(scacchiera1, screen, 5, 5)
@@ -101,6 +103,7 @@ while scacchiera4.navi1max>0 or scacchiera4.navi2max>0:
 
 screen.addstr(29, 140, "\n\n\n\n\n\n\n\n\n\n")
 
+#Ciclo per colpire le navi
 while scacchiera1.cbreak<ScacchieraNavi.maxnavi and scacchiera4.cbreak<ScacchieraNavi.maxnavi:
     
     screen.addstr(30, 5, 'Riga?')
