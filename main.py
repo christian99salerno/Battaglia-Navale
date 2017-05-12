@@ -5,8 +5,8 @@ import curses
 
 
 def legami(scacchiera1, scacchiera2, coordinata):
-    scacchiera2.BreakShip(coordinata)
-    scacchiera1.posizione_colpi(coordinata)
+    x = scacchiera2.BreakShip(coordinata)
+    scacchiera1.posizione_colpi(coordinata, x)
         
 screen=curses.initscr()
 

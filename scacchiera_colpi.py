@@ -7,11 +7,12 @@ class ScacchieraColpi(ScacchieraGenerale):
 
     def posizione_colpi(self,posizione,x):
         
-        if posizione[0] < 0 or posizione[1] < 0 or posizione[1] > self.r or posizione[1] > self.c:
+        if posizione[0] <= 0 or posizione[1] <= 0 or posizione[1] > self.r or posizione[1] > self.c:
             return
         
-        elif x==1:
-            self.colpite.append(posizione)
 
         else:
-            self.posizioni.append(posizione)
+            if x==True:
+                self.colpite.append(posizione)
+            else: 
+                self.posizioni.append(posizione)
