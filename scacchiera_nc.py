@@ -25,6 +25,7 @@ def StampaScacchiera(scacchiera, screen, pos_rig, pos_col):
         StampaColpito(scacchiera, screen, pos_rig, pos_col)
     else:
         StampaColpi(scacchiera, screen, pos_rig, pos_col)
+        StampaColpite(scacchiera, screen, pos_rig, pos_col):
      
      
 
@@ -43,4 +44,6 @@ def StampaColpito(scacchiera, screen, pos_rig, pos_col):
     for posizione in scacchiera.navi_abbattute:
         screen.addstr((pos_rig+2)+4*(posizione[0]-1),(pos_col+2)+4*(posizione[1]-1),'#')
 
-    
+def StampaColpite(scacchiera, screen, pos_rig, pos_col):
+    for colpita in self.colpite:
+        screen.addstr((pos_rig+2)+4*(posizione[0]-1),(pos_col+2)+4*(posizione[1]-1),'@')

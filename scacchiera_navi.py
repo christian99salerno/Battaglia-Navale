@@ -76,6 +76,7 @@ class ScacchieraNavi(ScacchieraGenerale):
             if colpo in self.posizioni:
                self.navi_abbattute.append(colpo)
                self.cbreak+=1
+               return 1
             else:                   
                return
              
